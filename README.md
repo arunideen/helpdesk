@@ -340,6 +340,12 @@ pytest tests/ -v
 
 ---
 
+## Deployment
+
+For hosting a live demo, see the [Railway Deployment Guide](docs/RAILWAY_DEPLOY.md).
+
+---
+
 ## User Manuals
 
 Detailed user manuals are available for each role:

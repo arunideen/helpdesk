@@ -1,0 +1,10 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile.prod"
+
+[build.args]
+VITE_API_URL = "${{backend.RAILWAY_PUBLIC_DOMAIN}}"
+
+[deploy]
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3

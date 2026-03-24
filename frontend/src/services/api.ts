@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL || '/api',
 })
 
 api.interceptors.request.use((config) => {
@@ -74,7 +74,8 @@ export const listAttachments = (ticketId: number) =>
 
 export const getAttachmentDownloadUrl = (attachmentId: number) => {
   const token = localStorage.getItem('token')
-  return `/api/attachments/${attachmentId}/download?token=${encodeURIComponent(token || '')}`
+  const base = import.meta.env.VITE_API_URL || '/api'
+  return `${base}/attachments/${attachmentId}/download?token=${encodeURIComponent(token || '')}`
 }
 
 export const uploadAttachments = (ticketId: number, files: File[]) => {
